@@ -40,7 +40,7 @@ palette-agent:
     ARG STYLUS_IMAGE=${SPECTRO_PUB_REPO}/edge/stylus-agent-mode-${PLATFORM}-${ARCH}:${PE_VERSION}
     
     WORKDIR /workdir
-    COPY (+stylus-image/opt/nianyush/bin/palette-agent --PLATFORM=${PLATFORM} --ARCH=${ARCH} --STYLUS_IMAGE=${STYLUS_IMAGE}) /workdir/
+    COPY (+stylus-image/opt/spectrocloud/bin/palette-agent --PLATFORM=${PLATFORM} --ARCH=${ARCH} --STYLUS_IMAGE=${STYLUS_IMAGE}) /workdir/
     RUN chmod +x /workdir/palette-agent
 
     SAVE ARTIFACT /workdir/palette-agent AS LOCAL ./build/palette-agent-${PLATFORM}-${ARCH}
