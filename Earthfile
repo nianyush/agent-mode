@@ -40,7 +40,7 @@ palette-agent:
     ARG STYLUS_IMAGE=${SPECTRO_PUB_REPO}/edge/stylus-agent-mode-${PLATFORM}-${ARCH}:${PE_VERSION}
     
     WORKDIR /workdir
-    COPY (+stylus-image/opt/spectrocloud/bin/palette-agent --PLATFORM=${PLATFORM} --ARCH=${ARCH} --STYLUS_IMAGE=${STYLUS_IMAGE}) /workdir/
+    COPY (+stylus-image/opt/nianyush/bin/palette-agent --PLATFORM=${PLATFORM} --ARCH=${ARCH} --STYLUS_IMAGE=${STYLUS_IMAGE}) /workdir/
     RUN chmod +x /workdir/palette-agent
 
     SAVE ARTIFACT /workdir/palette-agent AS LOCAL ./build/palette-agent-${PLATFORM}-${ARCH}
@@ -81,8 +81,8 @@ install-script:
 
     ARG PE_VERSION=$(head -n 1 PE_VERSION)
     ARG IMAGE_REPO=${SPECTRO_PUB_REPO}/edge
-    # https://github.com/spectrocloud/agent-mode/releases/download/v4.5.0-rc2/palette-agent-linux-amd64
-    ARG AGENT_URL_PREFIX=https://github.com/spectrocloud/agent-mode/releases/download/${VERSION}
+    # https://github.com/nianyush/agent-mode/releases/download/v4.5.0-rc2/palette-agent-linux-amd64
+    ARG AGENT_URL_PREFIX=https://github.com/nianyush/agent-mode/releases/download/${VERSION}
     
     ENV PE_VERSION=${PE_VERSION}
     ENV IMAGE_REPO=${IMAGE_REPO}
